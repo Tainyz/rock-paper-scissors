@@ -1,18 +1,13 @@
 function getComputerChoice(){
     let comChoice = Math.floor(Math.random() * 3); 
     console.log(`computer Choice ${comChoice}`);
-    return comChoice;    
+    return Number(comChoice);    
 }
 function getHumanChoice(){
-    input = prompt("Choose 1 (0:Rock, 1:Paper, 2: Scissors)");
+    let input = prompt("Choose 1 (0:Rock, 1:Paper, 2: Scissors)");
     console.log(`Human Choice ${input}`);
-    return input;
+    return Number(input);
 }
-
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 function playRound(humanChoice, computerChoice) 
 {
     if(humanChoice === 0){
@@ -52,5 +47,6 @@ function playRound(humanChoice, computerChoice)
         }
     }
 }
-
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 playRound(humanSelection,computerSelection);
