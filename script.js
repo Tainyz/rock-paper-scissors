@@ -11,42 +11,65 @@ function getHumanChoice(){
 function playRound(humanChoice, computerChoice) 
 {
     if(humanChoice === 0){
-        if(computerChoice == 0){
-            console.log("Draw! Redo");
+        if(computerChoice == 0){            
+            return "Draw";
         }            
-        else if(computerChoice === 1){
-            console.log("Paper Win! ComputerScore +1");
+        else if(computerChoice === 1){            
+            return "Computer";
         }
-        else{
-            console.log("Rock Wins! PlayerScore +1");
+        else{            
+            return "Human";
         }
     }
     else if(humanChoice === 1){
-        if(computerChoice === 0){
-            console.log("Paper Win! PlayerScore +1");
+        if(computerChoice === 0){            
+            return "Human";
         }        
     
-        else if(computerChoice === 1){
-            console.log("Draw! Redo");
+        else if(computerChoice === 1){            
+            return "Draw";
         }
-        else{
-            console.log("Scissors Wins! ComputerScore +1");
+        else{            
+            return "Computer";
         }
     }
     else
     {
-        if(computerChoice === 0){
-            console.log("Rock Wins! ComputerScore +1");
-        }        
-    
-        else if(computerChoice === 1){
-            console.log("Scissors Win! PlayerScore +1");
+        if(computerChoice === 0){            
+            return "Computer"
+        }            
+        else if(computerChoice === 1){           
+            return "Human";
         }
-        else{
-            console.log("Draw! Redo");
+        else{            
+            return "Draw"
         }
     }
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection,computerSelection);
+function playGame(t=5){
+    let humanScore = 0;
+    let computerScore = 0;    
+    for(let i = 0; i< t;i++){
+        console.log(`########Round ${i+1}#######`);
+        let resultx = playRound(getHumanChoice(),getComputerChoice())        
+        if (resultx === "Human"){
+            console.log("****Human +1");
+            humanScore++;
+        }
+        else if (resultx === "Computer"){
+            console.log("****Computer +1");
+            computerScore++;
+        }else{
+            i--;
+        }       
+    } 
+    console.log(`Player: ${humanScore} Computer: ${computerScore}`);   
+
+}
+
+playGame(5);
+
+
+
+
+
