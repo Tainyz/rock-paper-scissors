@@ -12,19 +12,21 @@ buttons.forEach((button) => {
   });
 });
 
-function UIplayGame(idVal){
-  console.log(idVal);
+function UIplayGame(idVal){  
   let results = playRound(idVal,getComputerChoice());    
     if(results === "Win"){
       humanScore++;
-      pScore.textContent = humanScore;
+      pScore.textContent = humanScore;      
       round++;
+      roundCount.textContent = "Round: " + round;
     }else if(results === "Lose"){
       computerScore++;
       cScore.textContent = computerScore;
+      roundCount.textContent = "Round: " + round;
       round++;
-    }
-    roundCount.textContent = "Round: " + round;
+    }else{
+      roundCount.textContent = "Draw!"
+    }    
 }
 
 function getComputerChoice() {
