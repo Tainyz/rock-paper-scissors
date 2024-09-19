@@ -2,3 +2,16 @@
     display: flex;
     justify-content: space-around;
 }
+p{
+    display: inline;
+}
+#choices{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.titleName,.round{
+    text-align: center;
+    font-weight: 900;
+
+}

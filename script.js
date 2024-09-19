@@ -1,12 +1,30 @@
 const buttons = document.querySelectorAll("button");
+const pScore = document.querySelector("#pscore");
+const cScore = document.querySelector("#cscore");
+const roundCount = document.querySelector(".times");
+let humanScore = 0;
+let computerScore = 0; 
+let round = 0;
+
 buttons.forEach((button) => {  
-  button.addEventListener("click", () => {    
-    playRound(button.id,getComputerChoice());
+  button.addEventListener("click", () => {
+    UIplayGame(button.id);
   });
 });
 
-function alertChoice(){
-  console.log("")
+function UIplayGame(idVal){
+  console.log(idVal);
+  let results = playRound(idVal,getComputerChoice());    
+    if(results === "Win"){
+      humanScore++;
+      pScore.textContent = humanScore;
+      round++;
+    }else if(results === "Lose"){
+      computerScore++;
+      cScore.textContent = computerScore;
+      round++;
+    }
+    roundCount.textContent = "Round: " + round;
 }
 
 function getComputerChoice() {
@@ -28,26 +46,28 @@ function getHumanChoice() {
     
 function playRound(Human, Computer) {
     if (Human === Computer) {
-      console.log("Draw");
+      // console.log("Draw");
       return "Draw";
     }
     else if (Human === "rock" && Computer === "scissors") {
-      console.log("You win! Rock beats Scissors");
+      // console.log("You win! Rock beats Scissors");
       return "Win";
     }
     else if (Human === "paper" && Computer === "rock") {
-      console.log("You win! Paper beats Rock!");
+      // console.log("You win! Paper beats Rock!");
       return "Win";
     }
     else if (Human === "scissors" && Computer === "paper") {
-      console.log("You win! Scissors beats Paper");
+      // console.log("You win! Scissors beats Paper");
       return "Win";
     }
     else {
-      console.log("You lose");
+      // console.log("You lose");
       return "Lose";
     }
   }
+
+/*
 function playGame(times=5) {
     let humanScore = 0;
     let computerScore = 0;
@@ -64,6 +84,7 @@ function playGame(times=5) {
     }
     alert(`--Game of ${times} -- Your Scores: ${humanScore} Computer:${computerScore}`);
   }
+    */
   
 
   
