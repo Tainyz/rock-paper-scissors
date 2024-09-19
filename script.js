@@ -47,24 +47,19 @@ function getHumanChoice() {
   }
     
 function playRound(Human, Computer) {
-    if (Human === Computer) {
-      // console.log("Draw");
+    if (Human === Computer) {      
       return "Draw";
     }
-    else if (Human === "rock" && Computer === "scissors") {
-      // console.log("You win! Rock beats Scissors");
+    else if (Human === "rock" && Computer === "scissors") {      
       return "Win";
     }
-    else if (Human === "paper" && Computer === "rock") {
-      // console.log("You win! Paper beats Rock!");
+    else if (Human === "paper" && Computer === "rock") {      
       return "Win";
     }
-    else if (Human === "scissors" && Computer === "paper") {
-      // console.log("You win! Scissors beats Paper");
+    else if (Human === "scissors" && Computer === "paper") {      
       return "Win";
     }
-    else {
-      // console.log("You lose");
+    else {      
       return "Lose";
     }
   }
