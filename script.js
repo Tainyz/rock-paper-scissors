@@ -1,3 +1,14 @@
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {  
+  button.addEventListener("click", () => {    
+    playRound(button.id,getComputerChoice());
+  });
+});
+
+function alertChoice(){
+  console.log("")
+}
+
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random() * choices.length)];  
@@ -54,5 +65,5 @@ function playGame(times=5) {
     alert(`--Game of ${times} -- Your Scores: ${humanScore} Computer:${computerScore}`);
   }
   
-playGame();
+
   
